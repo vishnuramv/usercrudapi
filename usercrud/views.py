@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView
-from rest_framework.generics import CreateAPIView
-from rest_framework.generics import DestroyAPIView
-from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import UpdateAPIView, RetrieveAPIView, ListAPIView, CreateAPIView, DestroyAPIView
 from .serializers import UserSerializer
 from .models import User
 
 class ListUserAPIView(ListAPIView):
     """This endpoint list all of the available users from the database"""
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class RetrieveUserAPIView(RetrieveAPIView):
+    """This endpoint allows for retrieve a specific user by passing in the id from the database"""
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
