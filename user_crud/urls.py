@@ -9,6 +9,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include('usercrud.urls')),
     path('', include_docs_urls(title='User Api')),
-    url(r'^static/(?P<path>.*)$', static.serve,
-        {'document_root': settings.STATIC_ROOT}, name='static'),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
