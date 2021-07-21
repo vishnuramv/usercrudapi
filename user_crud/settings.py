@@ -81,6 +81,8 @@ REST_FRAMEWORK = {
 }
 
 
+SECURE_CONTENT_TYPE_NOSNIFF=True
+
 WSGI_APPLICATION = 'user_crud.wsgi.application'
 
 
